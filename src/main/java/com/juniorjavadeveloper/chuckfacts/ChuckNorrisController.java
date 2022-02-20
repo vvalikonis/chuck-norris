@@ -25,8 +25,6 @@ public class ChuckNorrisController {
     public ResponseEntity<Response> getOneFacts(
             @RequestParam(name = "size", required = false, defaultValue = "10") int size) {
         return ResponseEntity.ok(chuckNorrisFactory.getFactList(size));
-
     }
-
 
 }
