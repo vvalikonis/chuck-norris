@@ -1,18 +1,20 @@
 package com.juniorjavadeveloper.chuckfacts;
 
 import com.github.javafaker.Faker;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Component
 public class ChuckNorrisFactory {
 
     private final Faker faker = new Faker();
 
     public Response getFact() {
+        log.info("Returned fact");
         return new Response(faker.chuckNorris().fact());
     }
 
@@ -23,6 +25,7 @@ public class ChuckNorrisFactory {
             facts.add(faker.chuckNorris().fact());
 
         }
+        log.info("Returned fact's list. List size {}", facts.size());
         return new Response(facts, facts.size());
     }
 }

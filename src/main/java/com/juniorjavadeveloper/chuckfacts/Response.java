@@ -1,10 +1,12 @@
 package com.juniorjavadeveloper.chuckfacts;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Response {
     private final String fact;
@@ -24,21 +26,5 @@ public class Response {
         this.created = LocalDateTime.now();
         this.facts = null;
         this.size = null;
-    }
-
-    public String getFact() {
-        return fact;
-    }
-
-    public List<String> getFacts() {
-        return facts;
-    }
-
-    public Integer getSize() {
-        return size;
-    }
-
-    public LocalDateTime getCreated() {
-        return created;
     }
 }

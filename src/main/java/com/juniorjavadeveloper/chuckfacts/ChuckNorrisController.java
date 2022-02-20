@@ -1,18 +1,16 @@
 package com.juniorjavadeveloper.chuckfacts;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("")
 @CrossOrigin("*")
 public class ChuckNorrisController {
 
     private final ChuckNorrisFactory chuckNorrisFactory;
-
-    public ChuckNorrisController(ChuckNorrisFactory chuckNorrisFactory) {
-        this.chuckNorrisFactory = chuckNorrisFactory;
-    }
 
     @GetMapping("/fact")
     public ResponseEntity<Response> getOneFact() {
